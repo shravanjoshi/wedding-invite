@@ -137,7 +137,7 @@ const HeroSection = ({ onScrollDown }) => (
     <button
       type="button"
       onClick={onScrollDown}
-      className="absolute bottom-36 z-10 rounded-full border border-[#c0a062] bg-[#f7f0e6]/80 px-4 pt-1 pb-1.5 font-serif text-[8px] tracking-[0.25em] text-[#5b4b3e] shadow-sm backdrop-blur-sm transition-colors hover:bg-[#f7f0e6] focus:outline-none focus:ring-2 focus:ring-[#c0a062] focus:ring-offset-2 focus:ring-offset-[#f7f0e6] sm:bottom-32 sm:px-5 sm:pt-1.5 sm:pb-2 sm:text-[9px]"
+      className="absolute bottom-40 z-10 rounded-full border border-[#c0a062] bg-[#f7f0e6]/80 px-4 pt-1 pb-1.5 font-serif text-[8px] tracking-[0.25em] text-[#5b4b3e] shadow-sm backdrop-blur-sm transition-colors hover:bg-[#f7f0e6] focus:outline-none focus:ring-2 focus:ring-[#c0a062] focus:ring-offset-2 focus:ring-offset-[#f7f0e6] sm:bottom-32 sm:px-5 sm:pt-1.5 sm:pb-2 sm:text-[9px]"
       aria-label="Scroll down to the wedding invitation"
     >
       SCROLL DOWN <span className="ml-1 text-sm text-[#c49a4a]" aria-hidden="true">↓</span>
