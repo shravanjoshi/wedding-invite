@@ -13,6 +13,12 @@ body {
   background: #1f2f29;
 }
 
+.main-content-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  scroll-behavior: smooth;
+}
+
 img {
   display: block;
   max-width: 100%;

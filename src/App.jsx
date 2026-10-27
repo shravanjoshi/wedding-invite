@@ -100,7 +100,7 @@ const FadeInSection = ({ children, delay = 0, instant = false }) => {
   );
 };
 
-const HeroSection = () => (
+const HeroSection = ({ onScrollDown }) => (
   <section
     className="relative flex min-h-[110vh] flex-col items-center justify-center overflow-hidden bg-[#f7f0e6] bg-cover bg-center px-6 py-16"
   >
@@ -134,6 +134,14 @@ const HeroSection = () => (
         </h1>
       </div>
     </FadeInSection>
+    <button
+      type="button"
+      onClick={onScrollDown}
+      className="absolute bottom-24 z-10 rounded-full border border-[#c0a062] bg-[#f7f0e6]/80 px-4 pt-1 pb-1.5 font-serif text-[8px] tracking-[0.25em] text-[#5b4b3e] shadow-sm backdrop-blur-sm transition-colors hover:bg-[#f7f0e6] focus:outline-none focus:ring-2 focus:ring-[#c0a062] focus:ring-offset-2 focus:ring-offset-[#f7f0e6] sm:bottom-28 sm:px-5 sm:pt-1.5 sm:pb-2 sm:text-[9px]"
+      aria-label="Scroll down to the wedding invitation"
+    >
+      SCROLL DOWN <span className="ml-1 text-sm text-[#c49a4a]" aria-hidden="true">↓</span>
+    </button>
   </section>
 );
 
@@ -259,6 +267,13 @@ export default function WeddingInvitation() {
     setIsMusicPlaying(false);
   };
 
+  const scrollDownFromHero = () => {
+    mainContentRef.current?.scrollTo({
+      top: mainContentRef.current.clientHeight,
+      behavior: 'smooth',
+    });
+  };
+
   const scrollToStory = (index, behavior = 'smooth') => {
     const carousel = storyCarouselRef.current;
     const card = carousel?.children[index];
@@ -297,7 +312,7 @@ export default function WeddingInvitation() {
     <div className="bg-[#1f2f29] min-h-screen w-full text-[#333333] font-serif overflow-x-hidden selection:bg-[#c0a062] selection:text-white">
 
       {/* Mobile-first Wrapper */}
-      <div ref={mainContentRef} className={`relative w-full min-h-screen bg-[#f4f1eb] overflow-x-hidden hide-scrollbar ${intro === 'done' ? 'overflow-y-auto' : 'h-[100dvh] overflow-y-hidden'
+      <div ref={mainContentRef} className={`main-content-scroll relative w-full min-h-screen bg-[#f4f1eb] overflow-x-hidden hide-scrollbar ${intro === 'done' ? 'overflow-y-auto' : 'h-[100dvh] overflow-y-hidden'
         }`}>
         {intro !== 'done' && (
           <EnvelopeIntro
@@ -318,7 +333,7 @@ export default function WeddingInvitation() {
         >
 
           {/* --- 2. HERO SECTION --- */}
-          <HeroSection />
+          <HeroSection onScrollDown={scrollDownFromHero} />
 
 
 
