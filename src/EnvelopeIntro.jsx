@@ -3,7 +3,7 @@ import envelopeVideo from '../envelope.mp4';
 
 export default function EnvelopeIntro({ onDone }) {
   const videoRef = useRef(null);
-  const [phase, setPhase] = useState('closed'); // closed | playing | error
+  const [phase, setPhase] = useState('closed'); // closed | playing | finished | error
 
   const open = async () => {
     if (phase !== 'closed') return;
@@ -21,12 +21,15 @@ export default function EnvelopeIntro({ onDone }) {
   };
 
   const handleVideoEnd = () => {
+    setPhase('finished');
     onDone?.();
   };
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-[#19130d]"
+      className={`fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-[#19130d] transition-opacity duration-700 ease-out ${
+        phase === 'finished' ? 'pointer-events-none opacity-0' : 'opacity-100'
+      }`}
       role="dialog"
       aria-label="Open wedding invitation"
     >
@@ -34,7 +37,7 @@ export default function EnvelopeIntro({ onDone }) {
         ref={videoRef}
         src={envelopeVideo}
         className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
-          phase === 'playing' ? 'opacity-100' : 'pointer-events-none opacity-0'
+          phase === 'playing' || phase === 'finished' ? 'opacity-100' : 'pointer-events-none opacity-0'
         }`}
         playsInline
         preload="auto"
@@ -43,7 +46,7 @@ export default function EnvelopeIntro({ onDone }) {
         aria-hidden={phase !== 'playing'}
       />
 
-      {phase !== 'playing' && (
+      {(phase === 'closed' || phase === 'error') && (
         <div className="envelope-content-marquee relative z-10 flex flex-col items-center text-center">
           <p className="font-serif text-8xl tracking-[-0.08em] text-[#e8c879] sm:text-9xl">
             R & Y

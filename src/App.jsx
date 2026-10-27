@@ -225,6 +225,16 @@ export default function WeddingInvitation() {
   }, [intro]);
 
   useEffect(() => {
+    if (intro !== 'revealing') return;
+
+    const transitionEnd = window.setTimeout(() => {
+      setIntro('done');
+    }, 700);
+
+    return () => window.clearTimeout(transitionEnd);
+  }, [intro]);
+
+  useEffect(() => {
     if (intro !== 'done' || !mainContentRef.current) return;
 
     mainContentRef.current.scrollTo({ top: 0, behavior: 'auto' });
@@ -292,9 +302,8 @@ export default function WeddingInvitation() {
         {intro !== 'done' && (
           <EnvelopeIntro
             onDone={() => {
-              setIntro('done');
-              startMusic();
-            }}         // intro unmounts here
+              setIntro('revealing');
+            }}
           >
             <HeroSection />
           </EnvelopeIntro>
@@ -302,7 +311,11 @@ export default function WeddingInvitation() {
 
 
         {/* --- MAIN CONTENT (Revealed after envelope opens) --- */}
-        <div className="relative w-full">
+        <div
+          className={`relative w-full transition-opacity duration-700 ease-out ${
+            intro === 'closed' ? 'opacity-0' : 'opacity-100'
+          }`}
+        >
 
           {/* --- 2. HERO SECTION --- */}
           <HeroSection />
