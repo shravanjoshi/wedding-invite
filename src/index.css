@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #1f2f29;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  touch-action: manipulation;
+}
+
+@keyframes envelope-button-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.envelope-open-button {
+  animation: envelope-button-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes envelope-content-marquee {
+  0%,
+  100% {
+    transform: translateY(-5%);
+  }
+
+  50% {
+    transform: translateY(5%);
+  }
+}
+
+.envelope-content-marquee {
+  animation: envelope-content-marquee 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .envelope-open-button,
+  .envelope-content-marquee {
+    animation: none;
+  }
+}
