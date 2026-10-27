@@ -101,7 +101,7 @@ export default function ScratchCard({ onReveal }) {
     );
 
     // Title
-    const titleSize = Math.min(42, w * 0.105);
+    const titleSize = Math.min(20, w * 0.105);
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillStyle = GOLD;

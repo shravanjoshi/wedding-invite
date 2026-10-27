@@ -125,10 +125,12 @@ const HeroSection = () => (
         <img
           src={ganeshImage}
           alt="Lord Ganesha"
-          className="relative -top-8 mb-8 h-auto w-[min(42vw,120px)] object-contain drop-shadow-md sm:-top-16"
+          className="relative -top-8 mb-8 h-auto w-[min(25vw,120px)] object-contain drop-shadow-md sm:-top-16"
         />
         <h1 className="font-cursive text-[clamp(3.5rem,11vw,7.5rem)] leading-none text-[#805408] font-bold drop-shadow-sm">
-          Raghav weds Yashaswini
+          <span className="block sm:inline">Raghav</span>{' '}
+          <span className="block sm:inline">weds</span>{' '}
+          <span className="block sm:inline">Yashashwini</span>
         </h1>
       </div>
     </FadeInSection>
@@ -311,7 +313,7 @@ export default function WeddingInvitation() {
           <section className="px-6 py-12 flex flex-col items-center text-center">
             <FadeInSection>
               <div className="text-[#c0a062] text-4xl mb-4">ॐ</div> {/* Elegant Om symbol substituting Ganesha */}
-              <h1 className="font-cursive text-[clamp(2.8rem,10vw,3.75rem)] leading-tight text-[#805408] font-semibold mb-6">Raghav <span className="text-2xl sm:text-3xl mx-1 sm:mx-2">&</span> Yashaswini</h1>
+              <h1 className="font-cursive text-[clamp(2.8rem,10vw,3.75rem)] leading-tight text-[#805408] font-semibold mb-6">Raghav <span className="text-2xl sm:text-3xl mx-1 sm:mx-2">&</span> Yashashwini</h1>
 
               <p className="font-countdown text-xs font-bold tracking-[0.45em] text-[#a67c2e]  uppercase mb-2">We are getting married</p>
               <div className="flex items-center justify-center gap-4 my-6 text-[#a67c2e]">
@@ -373,50 +375,56 @@ export default function WeddingInvitation() {
 
           {/* --- 5. FAMILIES --- */}
           <section
-            className="relative overflow-hidden bg-[#f7f1e7] bg-cover bg-center py-24 px-8 text-center"
-            style={{ backgroundImage: `linear-gradient(rgba(247, 241, 231, 0.3), rgba(247, 241, 231, 0.3)), url(${familiesBackground})` }}
+            className="relative overflow-hidden bg-[#f7f1e7] py-24 px-8 text-center"
           >
-            <FadeInSection>
-              <div className="mb-5 font-countdown text-2xl tracking-[0.35em] text-[#c0a062]" aria-hidden="true">
-                ⤙ ❦ ⤚
-              </div>
-              <p className="font-cursive text-5xl sm:text-6xl text-[#a67c2e] mb-10">With immense joy and gratitude,</p>
-              <div className="mx-auto mb-8 h-px w-32 bg-[#c0a062]/30"></div>
-              <h2 className="font-countdown text-3xl sm:text-4xl tracking-[0.25em] font-medium text-[#40362e] mb-10 uppercase">
-                The Parsai Family
-              </h2>
-              <div className="mx-auto mb-12 h-px w-32 bg-[#c0a062]/30"></div>
-              <p className="mx-auto max-w-3xl font-countdown text-2xl sm:text-3xl text-[#806c57] mb-10" style={{ lineHeight: 2 }}>
-                cordially invites you to celebrate the wedding of their beloved son <span className="font-semibold not-italic">Raghav</span> with <span className="font-semibold not-italic">Yashaswini</span> as they begin their beautiful journey of love and lifelong companionship.
-              </p>
-              <p
-                className="mx-auto max-w-3xl font-countdown text-2xl sm:text-3xl italic text-[#806c57] mb-12"
-                style={{ lineHeight: 1.5 }}
-              >
-                Your gracious presence and blessings will make this occasion even more special.
-              </p>
+            <div
+              className="pointer-events-none absolute inset-[-8px] z-0 bg-cover bg-center blur-[3px]"
+              style={{ backgroundImage: `linear-gradient(rgba(247, 241, 231, 0.3), rgba(247, 241, 231, 0.3)), url(${familiesBackground})` }}
+              aria-hidden="true"
+            ></div>
 
-              <div className="flex items-center justify-center gap-4 mb-12 opacity-50">
-                <div className="h-px w-16 bg-[#c0a062] "></div>
-                <HeartIcon filled />
-                <div className="h-px w-16 bg-[#c0a062]"></div>
-              </div>
+            <div className="relative z-10">
+              <FadeInSection>
+                <div className="mb-5 font-countdown text-2xl tracking-[0.35em] text-[#c0a062]" aria-hidden="true">
+                  ⤙ ❦ ⤚
+                </div>
+                <p className="font-cursive text-5xl sm:text-6xl text-[#a67c2e] mb-10">With immense joy and gratitude,</p>
+                <div className="mx-auto mb-8 h-px w-32 bg-[#c0a062]/30"></div>
+                <h2 className="font-countdown text-3xl sm:text-4xl tracking-[0.25em] font-medium text-[#40362e] mb-10 uppercase">
+                  The Parsai Family
+                </h2>
+                <div className="mx-auto mb-12 h-px w-32 bg-[#c0a062]/30"></div>
+                <p className="mx-auto max-w-3xl font-countdown text-2xl sm:text-3xl text-[#806c57] mb-10" style={{ lineHeight: 2 }}>
+                  cordially invites you to celebrate the wedding of their beloved son <span className="font-semibold not-italic">Raghav</span> with <span className="font-semibold not-italic">Yashashwini</span> as they begin their beautiful journey of love and lifelong companionship.
+                </p>
+                <p
+                  className="mx-auto max-w-3xl font-countdown text-2xl sm:text-3xl italic text-[#806c57] mb-12"
+                  style={{ lineHeight: 1.5 }}
+                >
+                  Your gracious presence and blessings will make this occasion even more special.
+                </p>
 
-              <p className="font-cursive text-4xl sm:text-5xl text-[#a67c2e] mb-5">Two families. One promise.</p>
-              <div className="mb-5 font-countdown text-lg tracking-[0.4em] text-[#c0a062]" aria-hidden="true">
-                ❧ ♥ ❧
-              </div>
-              <h3 className="font-countdown text-3xl sm:text-4xl tracking-[0.25em] uppercase mb-5 text-[#5b4b3e] drop-shadow-[0_1px_1px_rgba(91,75,62,0.18)]">
-                Introducing the Families
-              </h3>
-              <div className="mb-16 font-countdown text-lg tracking-[0.4em] text-[#c0a062]" aria-hidden="true">
-                ⤙ ❦ ⤚
-              </div>
-            </FadeInSection>
+                <div className="flex items-center justify-center gap-4 mb-12 opacity-50">
+                  <div className="h-px w-16 bg-[#c0a062] "></div>
+                  <HeartIcon filled />
+                  <div className="h-px w-16 bg-[#c0a062]"></div>
+                </div>
 
-            <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
-              <FadeInSection delay={100}>
-                <div className="text-center">
+                <p className="font-cursive text-4xl sm:text-5xl text-[#a67c2e] mb-5">Two families. One promise.</p>
+                <div className="mb-5 font-countdown text-lg tracking-[0.4em] text-[#c0a062]" aria-hidden="true">
+                  ❧ ♥ ❧
+                </div>
+                <h3 className="font-countdown text-3xl sm:text-4xl tracking-[0.25em] uppercase mb-5 text-[#5b4b3e] drop-shadow-[0_1px_1px_rgba(91,75,62,0.18)]">
+                  Introducing the Families
+                </h3>
+                <div className="mb-16 font-countdown text-lg tracking-[0.4em] text-[#c0a062]" aria-hidden="true">
+                  ⤙ ❦ ⤚
+                </div>
+              </FadeInSection>
+
+              <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
+                <FadeInSection delay={100}>
+                  <div className="text-center">
                   <h4 className="font-cursive font-bold text-5xl text-[#a67c2e] mb-5">Raghav</h4>
                   <div className="mb-4 text-[#c0a062]" aria-hidden="true">✦</div>
                   <p className="font-countdown text-xs tracking-[0.3em] text-[#a67c2e] uppercase mb-3">The Groom</p>
@@ -430,7 +438,7 @@ export default function WeddingInvitation() {
                 <div className="mx-auto w-[min(42vw,190px)]">
                   <img
                     src={weddingEmblem}
-                    alt="Raghav and Yashaswini emblem"
+                    alt="Raghav and Yashashwini emblem"
                     className="h-auto w-full object-contain"
                   />
                 </div>
@@ -438,7 +446,7 @@ export default function WeddingInvitation() {
 
               <FadeInSection delay={200}>
                 <div className="text-center">
-                  <h4 className="font-cursive font-bold text-5xl text-[#a67c2e] mb-5">Yashaswini</h4>
+                  <h4 className="font-cursive font-bold text-5xl text-[#a67c2e] mb-5">Yashashwini</h4>
                   <div className="mb-4 text-[#c0a062]" aria-hidden="true">✦</div>
                   <p className="font-countdown text-xs tracking-[0.3em] text-[#a67c2e] uppercase mb-3">The Bride</p>
                   <p className="font-countdown font-bold text-lg leading-relaxed text-[#6f6256]">Daughter of Shri Lokesh Ji Devray</p>
@@ -456,6 +464,7 @@ export default function WeddingInvitation() {
               </p>
               <div className="mt-8 text-xl text-[#c47f72]" aria-hidden="true">♥</div>
             </FadeInSection>
+            </div>
           </section>
 
           {/* --- 6. OUR STORY --- */}
@@ -700,7 +709,7 @@ export default function WeddingInvitation() {
 
                   <p className="font-['Cormorant_Garamond',_serif] font-medium text-base leading-relaxed text-[#4f4033] sm:text-lg">
                     Your presence and blessings will make the wedding celebrations of{' '}
-                    <strong className="font-semibold text-[#2f2118]">Raghav & Yashaswini</strong> truly special.
+                    <strong className="font-semibold text-[#2f2118]">Raghav & Yashashwini</strong> truly special.
                   </p>
 
                   <div className="my-5 text-[10px] text-[#b85f55]" aria-hidden="true">♥</div>
